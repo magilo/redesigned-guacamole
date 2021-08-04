@@ -12,6 +12,15 @@ export default class Players {
           player.data.get('name'),
           'Cards in hand: ' + Object.keys(player.data.get('hand')).length
         ]);
+        player.state = i;
+
+        player.on('changedata-hand', function () {
+          player.setText([
+            player.data.get('name'),
+            'Cards in hand: ' + Object.keys(player.data.get('hand')).length
+          ]);
+        });
+
         scene.players[player.data.get('name')] = player;
       }
     }

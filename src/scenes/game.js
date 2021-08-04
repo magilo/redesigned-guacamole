@@ -1,4 +1,5 @@
 import Players from '../helpers/players';
+import Deck from '../helpers/deck';
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -17,8 +18,10 @@ export default class Game extends Phaser.Scene {
     const worldHeight = this.cameras.main.height;
     const worldWidth = this.cameras.main.width;
 
+    this.deck = [];
     this.players = {};
-    this.newPlayers = new Players(this)
+    this.newPlayers = new Players(this);
+    this.newDeck = new Deck(this);
 
 
     this.trickBox = this.add.graphics().fillStyle(0xf5f5f5).fillRect(worldWidth - 730, 30, 700, 500)
@@ -27,6 +30,11 @@ export default class Game extends Phaser.Scene {
 
     this.dealText.on('pointerdown', function () {
       self.newPlayers.renderPlayers();
+
+      self.newDeck.createDeck();
+      Phaser.Utils.Array.Shuffle(self.deck);
+      //console.log(self.deck)
+      self.newDeck.dealCards(self.deck);
       console.log(self.players)
     })
 
