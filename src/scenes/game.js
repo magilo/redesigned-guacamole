@@ -1,3 +1,5 @@
+import Players from '../helpers/players';
+
 export default class Game extends Phaser.Scene {
   constructor() {
     super({
@@ -15,12 +17,29 @@ export default class Game extends Phaser.Scene {
     const worldHeight = this.cameras.main.height;
     const worldWidth = this.cameras.main.width;
 
+    this.players = {};
+    this.newPlayers = new Players(this)
+    // const allPlayers = ["Jessie", "James", "Meowth", "You"]
+
+    // for (let i = 0; i < allPlayers.length; i++) {
+    //   let playerName = allPlayers[i]
+    //   let player = self.add.text(75, 20 + (i * 40), '', { font: '16px Courier', fill: '#00ff00' });
+    //   player.setDataEnabled();
+    //   player.setData({ name: playerName, hand: {} });
+    //   player.setText([
+    //     'Name: ' + player.data.get('name'),
+    //     'Cards in hand: ' + Object.keys(player.data.get('hand')).length
+    //   ]);
+    //   console.log('player obj', player)
+    // }
+
     this.trickBox = this.add.graphics().lineStyle(4, 0xc9c0bb).strokeRect(worldWidth - 730, 30, 700, 500)
 
     this.dealText = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
 
     this.dealText.on('pointerdown', function () {
-
+      self.newPlayers.renderPlayers();
+      console.log(self.players)
     })
 
     this.dealText.on('pointerover', function () {
