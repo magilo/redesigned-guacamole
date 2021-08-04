@@ -21,6 +21,13 @@ export default class Players {
           ]);
         });
 
+        player.on('changedata-name', function () {
+          player.setText([
+            player.data.get('name'),
+            'Cards in hand: ' + Object.keys(player.data.get('hand')).length
+          ]);
+        });
+
         scene.players[player.data.get('name')] = player;
       }
     }

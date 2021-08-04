@@ -26,24 +26,24 @@ export default class Game extends Phaser.Scene {
 
     this.trickBox = this.add.graphics().fillStyle(0xf5f5f5).fillRect(worldWidth - 730, 30, 700, 500)
 
-    this.dealText = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
+    this.newGame = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
 
-    this.dealText.on('pointerdown', function () {
+    this.newGame.on('pointerdown', function () {
       self.newPlayers.renderPlayers();
 
       self.newDeck.createDeck();
       Phaser.Utils.Array.Shuffle(self.deck);
       //console.log(self.deck)
       self.newDeck.dealCards(self.deck);
-      console.log(self.players)
+      //console.log(self.players)
     })
 
-    this.dealText.on('pointerover', function () {
-      self.dealText.setColor('#ff69b4');
+    this.newGame.on('pointerover', function () {
+      self.newGame.setColor('#ff69b4');
     })
 
-    this.dealText.on('pointerout', function () {
-      self.dealText.setColor('#000000');
+    this.newGame.on('pointerout', function () {
+      self.newGame.setColor('#000000');
     })
 
 

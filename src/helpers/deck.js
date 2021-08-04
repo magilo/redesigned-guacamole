@@ -47,7 +47,6 @@ export default class Deck {
         let card = deck[i];
         if (card.value === '3' && card.suit === 'diamonds') {
           diamond3 = handIdx;
-          console.log("diamond3", diamond3)
         }
         tempHands[handIdx][card.unicode] = card;
         if (handIdx >= 3) {
@@ -56,11 +55,13 @@ export default class Deck {
           handIdx++;
         }
       }
-      console.log(tempHands)
+      //console.log(tempHands)
 
       for (let player in scene.players) {
-        // console.log(player)
         scene.players[player].setData('hand', tempHands[scene.players[player].state]);
+        if (scene.players[player].state === diamond3) {
+          scene.players[player].setData('name', scene.players[player].data.get('name') + ' ' + String.fromCodePoint('0x2666'))
+        }
       }
     }
 
