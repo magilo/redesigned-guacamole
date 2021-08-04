@@ -58,7 +58,7 @@ export default class Game extends Phaser.Scene {
     })
 
     this.newGame.on('pointerover', function () {
-      self.newGame.setColor('#ff69b4');
+      self.newGame.setColor('#ff5ccd');
     })
 
     this.newGame.on('pointerout', function () {
@@ -69,6 +69,7 @@ export default class Game extends Phaser.Scene {
 
     this.playText = this.add.text(75, 450, ['PLAY COMBO'], style).setInteractive();
 
+    //move this codeblock later into another file
     this.playText.on('pointerdown', function () {
       // console.log('self.combo', self.combo)
       for (let key in self.combo) {
