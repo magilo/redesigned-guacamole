@@ -1,6 +1,7 @@
 import Players from '../helpers/players';
 import Deck from '../helpers/deck';
 import Hand from '../helpers/hand';
+import Trick from '../helpers/trick';
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -24,6 +25,7 @@ export default class Game extends Phaser.Scene {
     this.newPlayers = new Players(this);
     this.newDeck = new Deck(this);
     this.newHand = new Hand(this);
+    this.trickArea = new Trick(this);
     this.combo = {};
 
     self.newPlayers.renderPlayers();
@@ -80,6 +82,7 @@ export default class Game extends Phaser.Scene {
         delete yourHand[key]
         // console.log(self.players.You.getData('hand'))
         self.players.You.setData('hand', yourHand);
+
       }
       self.combo = {};
     })
