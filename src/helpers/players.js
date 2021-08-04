@@ -5,7 +5,7 @@ export default class Players {
       const allPlayers = ["Jessie", "James", "Meowth", "You"]
       for (let i = 0; i < allPlayers.length; i++) {
         let playerName = allPlayers[i]
-        let player = scene.add.text(90, 60 + (i * 60), '', { font: '20px Courier', fill: '#00ff00' });
+        let player = scene.add.text(90, 60 + (i * 60), '', { font: 'bold 20px Courier', fill: '#00ff00' });
         player.setDataEnabled();
         player.setData({ name: playerName, hand: {} });
         player.setText([
