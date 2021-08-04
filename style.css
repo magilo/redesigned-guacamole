@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font: 1.5em monospace;
+    color: #000000;
+}
+
+
+
+
+#game-area {
+  outline: thin dotted;
+}
