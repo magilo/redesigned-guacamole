@@ -6,6 +6,9 @@ https://en.wikipedia.org/wiki/Big_two
 
 This project is currently a work in progress.
 
+### Deployed at
+https://magilo.github.io/redesigned-guacamole/
+
 ## Built with
 - Node.js v14.17.0
 - Phaser 3
