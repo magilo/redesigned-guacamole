@@ -23,6 +23,7 @@ To Start Server:
 
 ## Features
 - start a new game and see your hand
+- rearrage your cards
 - create a combo and submit it
 
 ### Coming Soon:
