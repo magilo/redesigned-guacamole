@@ -10,7 +10,7 @@ This project is currently a work in progress.
 https://magilo.github.io/redesigned-guacamole/
 
 ## Built with
-- Node.js v14.17.0
+- JavaScript ES6
 - Phaser 3
 
 ## Setup
