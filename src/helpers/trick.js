@@ -8,6 +8,14 @@ export default class Trick {
     // }
 
     this.renderTrick = (card) => {
+      // console.log('renderTricck', card)
+      //console.log('trickBox', scene.trickBox)
+      // card.x = scene.trickBox.x
+      // card.y = scene.trickBox.y
+
+      scene.testGroup.add(card)
+      scene.testGroup.setXY(scene.trickBox.x + 120, scene.trickBox.y + 170, 90);
+
 
     }
     // this.renderTrick = (x, y, combo) => {
