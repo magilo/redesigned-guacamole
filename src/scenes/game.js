@@ -30,33 +30,19 @@ export default class Game extends Phaser.Scene {
 
     self.newPlayers.renderPlayers();
 
-    this.trickBox = this.add.graphics().fillStyle(0xf5f5f5).fillRect(worldWidth - 730, 30, 700, 500)
+    this.trickBox = this.add.rectangle(worldWidth - 730, 30, 700, 500, 0xf5f5f5);
+
+    this.trickBox.setOrigin(0, 0);
 
     this.newGame = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
 
-    // this.testHandRender = () => {
-    //   let newHand = new Hand(this);
-    //   let hand = self.players.You.getData('hand')
-    //   console.log(hand)
-    //   let i = 0;
-    //   for (let card in hand) {
-    //     // playerCard.testFile();
-    //     let currCard = hand[card]
-    //     newHand.renderCard(50 + (i * 90), 600, currCard);
-    //     i++;
-    //   }
-
-    // }
 
     this.newGame.on('pointerdown', function () {
-
       self.newDeck.createDeck();
       Phaser.Utils.Array.Shuffle(self.deck);
-      //console.log(self.deck)
       self.newDeck.dealCards(self.deck);
-      //console.log(self.players)
-
       self.newHand.renderHand(self.players.You.getData('hand'));
+      self.newGame.disableInteractive().setVisible(false);
     })
 
     this.newGame.on('pointerover', function () {
@@ -67,20 +53,19 @@ export default class Game extends Phaser.Scene {
       self.newGame.setColor('#000000');
     })
 
-
+    this.testGroup = this.add.group();
 
     this.playText = this.add.text(75, 450, ['PLAY COMBO'], style).setInteractive();
 
     //move this codeblock later into another file
     this.playText.on('pointerdown', function () {
-      // console.log('self.combo', self.combo)
+      self.testGroup.clear(true, true);
       for (let key in self.combo) {
         let curr = self.combo[key]
-        //console.log('curr', curr)
-        curr.destroy();
+        self.trickArea.renderTrick(curr);
+        curr.removeInteractive();
         let yourHand = self.players.You.getData('hand')
         delete yourHand[key]
-        // console.log(self.players.You.getData('hand'))
         self.players.You.setData('hand', yourHand);
 
       }

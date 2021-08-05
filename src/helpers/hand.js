@@ -5,6 +5,9 @@ export default class Hand {
 
       let card = scene.add.text(x, y, [String.fromCodePoint(currCard.unicode)]).setFontSize(140).setFontFamily('Arial').setColor('#000000').setInteractive();
       card.name = currCard.unicode;
+      card.setDataEnabled();
+      card.setData(currCard.unicode, currCard);
+
       scene.input.setDraggable(card);
 
       scene.input.on('drag', function (pointer, gameObject, dragX, dragY) {
@@ -21,7 +24,6 @@ export default class Hand {
           card.setColor('#000000');
           card.state = 0;
           delete scene.combo[card.name];
-          console.log('self combo', scene.combo)
         }
       })
 
@@ -30,7 +32,6 @@ export default class Hand {
 
     this.renderHand = (hand) => {
       //hand is an {}
-      //console.log('inside renderHand', hand)
       let i = 0;
       for (let card in hand) {
         this.renderCard(50 + (i * 90), 600, hand[card]);
