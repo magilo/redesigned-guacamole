@@ -1,6 +1,6 @@
 # Big Two
 
-Big Two, known colloquially as Chinese Poker is a shedding-type card game played with two to four players.
+Big Two, known colloquially as Chinese Poker, is a shedding-type card game played with two to four players.
 
 https://en.wikipedia.org/wiki/Big_two
 
