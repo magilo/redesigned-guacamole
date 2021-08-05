@@ -55,7 +55,6 @@ export default class Deck {
           handIdx++;
         }
       }
-      //console.log(tempHands)
 
       for (let player in scene.players) {
         scene.players[player].setData('hand', tempHands[scene.players[player].state]);

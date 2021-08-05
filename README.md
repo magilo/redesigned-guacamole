@@ -26,5 +26,6 @@ To Start Server:
 - create a combo and submit it
 
 ### Coming Soon:
-- gameplay rules
+- card game rules
+- gameplay loop
 - multiplayer AI

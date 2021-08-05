@@ -35,28 +35,12 @@ export default class Game extends Phaser.Scene {
     this.trickBox.setOrigin(0, 0);
 
     this.newGame = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
-    // this.testHandRender = () => {
-    //   let newHand = new Hand(this);
-    //   let hand = self.players.You.getData('hand')
-    //   console.log(hand)
-    //   let i = 0;
-    //   for (let card in hand) {
-    //     // playerCard.testFile();
-    //     let currCard = hand[card]
-    //     newHand.renderCard(50 + (i * 90), 600, currCard);
-    //     i++;
-    //   }
 
-    // }
 
     this.newGame.on('pointerdown', function () {
-
       self.newDeck.createDeck();
       Phaser.Utils.Array.Shuffle(self.deck);
-      //console.log(self.deck)
       self.newDeck.dealCards(self.deck);
-      //console.log(self.players)
-
       self.newHand.renderHand(self.players.You.getData('hand'));
       self.newGame.disableInteractive().setVisible(false);
     })
