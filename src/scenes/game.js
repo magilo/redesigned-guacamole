@@ -30,11 +30,11 @@ export default class Game extends Phaser.Scene {
 
     self.newPlayers.renderPlayers();
 
-    this.trickBox = this.add.rectangle(worldWidth - 730, 30, 700, 500, 0xf5f5f5);
+    this.trickBox = this.add.rectangle(worldWidth - 730, 30, 600, 400, 0xf5f5f5);
 
     this.trickBox.setOrigin(0, 0);
 
-    this.newGame = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
+    this.newGame = this.add.text(75, 300, ['NEW GAME'], style).setInteractive();
 
 
     this.newGame.on('pointerdown', function () {
@@ -55,7 +55,7 @@ export default class Game extends Phaser.Scene {
 
     this.testGroup = this.add.group();
 
-    this.playText = this.add.text(75, 450, ['PLAY COMBO'], style).setInteractive();
+    this.playText = this.add.text(75, 375, ['PLAY COMBO'], style).setInteractive();
 
     //move this codeblock later into another file
     this.playText.on('pointerdown', function () {

@@ -1,6 +1,7 @@
 export default class Trick {
   constructor(scene) {
 
+    //this adds the selected combo cards into trick display area
     this.renderTrick = (card) => {
 
       scene.testGroup.add(card)
