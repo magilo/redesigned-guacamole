@@ -53,23 +53,25 @@ export default class Game extends Phaser.Scene {
       self.newGame.setColor('#000000');
     })
 
-    this.testGroup = this.add.group();
+    //group to store played combo & display in trick area
+    this.trickGroup = this.add.group();
 
     this.playText = this.add.text(75, 375, ['PLAY COMBO'], style).setInteractive();
 
     //move this codeblock later into another file
     this.playText.on('pointerdown', function () {
-      self.testGroup.clear(true, true);
-      for (let key in self.combo) {
-        let curr = self.combo[key]
-        self.trickArea.renderTrick(curr);
-        curr.removeInteractive();
-        let yourHand = self.players.You.getData('hand')
-        delete yourHand[key]
-        self.players.You.setData('hand', yourHand);
+      self.trickArea.playCombo()
+      // self.trickGroup.clear(true, true);
+      // for (let key in self.combo) {
+      //   let curr = self.combo[key]
+      //   self.trickArea.renderTrick(curr);
+      //   curr.removeInteractive();
+      //   let yourHand = self.players.You.getData('hand')
+      //   delete yourHand[key]
+      //   self.players.You.setData('hand', yourHand);
 
-      }
-      self.combo = {};
+      // }
+      // self.combo = {};
     })
 
     this.playText.on('pointerover', function () {
