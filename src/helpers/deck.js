@@ -56,6 +56,8 @@ export default class Deck {
         }
       }
 
+      //set the hand for every player
+      //update player name for the player that has the diamond 3
       for (let player in scene.players) {
         scene.players[player].setData('hand', tempHands[scene.players[player].state]);
         if (scene.players[player].state === diamond3) {

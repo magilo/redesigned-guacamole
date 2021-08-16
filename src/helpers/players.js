@@ -31,5 +31,9 @@ export default class Players {
         scene.players[player.data.get('name')] = player;
       }
     }
+
+    this.turn = () => {
+
+    }
   }
 }
