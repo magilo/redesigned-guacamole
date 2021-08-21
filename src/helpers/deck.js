@@ -62,6 +62,8 @@ export default class Deck {
         scene.players[player].setData('hand', tempHands[scene.players[player].state]);
         if (scene.players[player].state === diamond3) {
           scene.players[player].setData('name', scene.players[player].data.get('name') + ' ' + String.fromCodePoint('0x2666'))
+          scene.data.set('diamond3', diamond3); //save first player idx
+          scene.data.set('currPlayer', diamond3);
         }
       }
     }

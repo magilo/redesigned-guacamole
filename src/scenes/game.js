@@ -16,6 +16,7 @@ export default class Game extends Phaser.Scene {
 
   create() {
     let self = this;
+
     const style = { font: "bold 32px Courier New", fill: "#000000" };
     const worldHeight = this.cameras.main.height;
     const worldWidth = this.cameras.main.width;
@@ -43,6 +44,7 @@ export default class Game extends Phaser.Scene {
       self.newDeck.dealCards(self.deck);
       self.newHand.renderHand(self.players.You.getData('hand'));
       self.newGame.disableInteractive().setVisible(false);
+      //console.log(self)
     })
 
     this.newGame.on('pointerover', function () {
@@ -61,6 +63,7 @@ export default class Game extends Phaser.Scene {
     //move this codeblock later into another file
     this.playText.on('pointerdown', function () {
       self.trickArea.playCombo()
+      self.newPlayers.turn();
       // self.trickGroup.clear(true, true);
       // for (let key in self.combo) {
       //   let curr = self.combo[key]
