@@ -16,6 +16,7 @@ export default class Game extends Phaser.Scene {
 
   create() {
     let self = this;
+
     const style = { font: "bold 32px Courier New", fill: "#000000" };
     const worldHeight = this.cameras.main.height;
     const worldWidth = this.cameras.main.width;
@@ -30,11 +31,11 @@ export default class Game extends Phaser.Scene {
 
     self.newPlayers.renderPlayers();
 
-    this.trickBox = this.add.rectangle(worldWidth - 730, 30, 700, 500, 0xf5f5f5);
+    this.trickBox = this.add.rectangle(worldWidth - 730, 30, 600, 400, 0xf5f5f5);
 
     this.trickBox.setOrigin(0, 0);
 
-    this.newGame = this.add.text(75, 350, ['NEW GAME'], style).setInteractive();
+    this.newGame = this.add.text(75, 300, ['NEW GAME'], style).setInteractive();
 
 
     this.newGame.on('pointerdown', function () {
@@ -43,6 +44,7 @@ export default class Game extends Phaser.Scene {
       self.newDeck.dealCards(self.deck);
       self.newHand.renderHand(self.players.You.getData('hand'));
       self.newGame.disableInteractive().setVisible(false);
+      //console.log(self)
     })
 
     this.newGame.on('pointerover', function () {
@@ -53,23 +55,26 @@ export default class Game extends Phaser.Scene {
       self.newGame.setColor('#000000');
     })
 
-    this.testGroup = this.add.group();
+    //group to store played combo & display in trick area
+    this.trickGroup = this.add.group();
 
-    this.playText = this.add.text(75, 450, ['PLAY COMBO'], style).setInteractive();
+    this.playText = this.add.text(75, 375, ['PLAY COMBO'], style).setInteractive();
 
     //move this codeblock later into another file
     this.playText.on('pointerdown', function () {
-      self.testGroup.clear(true, true);
-      for (let key in self.combo) {
-        let curr = self.combo[key]
-        self.trickArea.renderTrick(curr);
-        curr.removeInteractive();
-        let yourHand = self.players.You.getData('hand')
-        delete yourHand[key]
-        self.players.You.setData('hand', yourHand);
+      self.trickArea.playCombo()
+      self.newPlayers.turn();
+      // self.trickGroup.clear(true, true);
+      // for (let key in self.combo) {
+      //   let curr = self.combo[key]
+      //   self.trickArea.renderTrick(curr);
+      //   curr.removeInteractive();
+      //   let yourHand = self.players.You.getData('hand')
+      //   delete yourHand[key]
+      //   self.players.You.setData('hand', yourHand);
 
-      }
-      self.combo = {};
+      // }
+      // self.combo = {};
     })
 
     this.playText.on('pointerover', function () {

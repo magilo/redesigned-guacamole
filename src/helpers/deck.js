@@ -56,10 +56,14 @@ export default class Deck {
         }
       }
 
+      //set the hand for every player
+      //update player name for the player that has the diamond 3
       for (let player in scene.players) {
         scene.players[player].setData('hand', tempHands[scene.players[player].state]);
         if (scene.players[player].state === diamond3) {
           scene.players[player].setData('name', scene.players[player].data.get('name') + ' ' + String.fromCodePoint('0x2666'))
+          scene.data.set('diamond3', diamond3); //save first player idx
+          scene.data.set('currPlayer', diamond3);
         }
       }
     }

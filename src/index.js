@@ -5,7 +5,7 @@ const config = {
     type: Phaser.AUTO,
     parent: "game-area",
     width: 1280,
-    height: 780,
+    height: 591,
     backgroundColor: '#f5eee5',
     scale: {
         mode: Phaser.Scale.FIT,
@@ -17,3 +17,7 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+
+
+// 1280,
+//     height: 780

@@ -34,7 +34,7 @@ export default class Hand {
       //hand is an {}
       let i = 0;
       for (let card in hand) {
-        this.renderCard(50 + (i * 90), 600, hand[card]);
+        this.renderCard(50 + (i * 90), 425, hand[card]);
         i++;
       }
     }
